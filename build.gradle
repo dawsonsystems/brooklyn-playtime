@@ -1,0 +1,23 @@
+apply plugin: 'groovy'
+
+repositories {
+  mavenCentral()
+  mavenLocal()
+  maven {
+//    url "http://developers.cloudsoftcorp.com/maven/releases/"
+    url "http://developers.cloudsoftcorp.com/maven/snapshots/"
+  }
+}
+
+targetCompatibility="1.6"
+sourceCompatibility="1.6"
+
+dependencies {
+  groovy group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.0.6'
+  testCompile group: 'org.spockframework', name: 'spock-core', version : '0.7-groovy-2.0'
+  compile group:"io.brooklyn", name:"brookly-all", version:"0.4.0-rc.2b"
+}
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '1.3'
+}
